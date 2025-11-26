@@ -52,17 +52,16 @@ public class OrganizerServiceImpl implements OrganizerService {
 
     @Override
     public Page<OrganizerListItemDTO> SearchPartially(
-            int page, int size, String[] sort
+            String q, int page, int size, String[] sort
     ) {
         if (sort.length > 2){
             throw new InternalServiceException("sort must contain field and direction");
         }
 
-        Sort.Direction direction = sort[1].equalsIgnoreCase("des")
+        Sort.Direction direction = sort[1].equalsIgnoreCase("desc")
                 ? Sort.Direction.DESC
                 : Sort.Direction.ASC;
-        Pageable pageable = PageRequest.of(page, size, direction);
-        String q = sort[0];
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction, sort[0]));
         Page<Organizer> result = orgRepository.findByNameContainingIgnoreCaseOrEmailContainingIgnoreCaseOrPhoneContaining(q, q, q, pageable);
 
         return result.map(o -> new OrganizerListItemDTO(o.getId(), o.getName(), o.getEmail()));

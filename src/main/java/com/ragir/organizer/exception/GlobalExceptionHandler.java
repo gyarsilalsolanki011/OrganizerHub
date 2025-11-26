@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<?> handleDuplicateException(
             DuplicateException ex, WebRequest request
     ) {
-        return error(ex.getMessage(), request, HttpStatus.BAD_REQUEST, "Duplicate Resource Error");
+        return error(ex.getMessage(), request, HttpStatus.CONFLICT, "Duplicate Resource Error");
     }
 
     @ExceptionHandler(Exception.class)

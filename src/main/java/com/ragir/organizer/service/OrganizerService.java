@@ -9,6 +9,6 @@ public interface OrganizerService {
     OrganizerResponse CreateOrganizer(OrganizerRequest organizerDTO);
     OrganizerResponse GetOrganizerById(Integer id);
     Page<OrganizerListItemDTO> SearchPartially(
-            int page, int size, String[] sort
+            String q, int page, int size, String[] sort
     );
 }

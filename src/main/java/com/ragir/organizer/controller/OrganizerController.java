@@ -31,10 +31,11 @@ public class OrganizerController {
 
     @GetMapping("/search")
     public ResponseEntity<Page<OrganizerListItemDTO>> SearchPartially(
+            @RequestParam(defaultValue = "Ram") String searchBy,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "0,desc") String[] sort
+            @RequestParam(defaultValue = "id,asc") String[] sort
     ) {
-        return ResponseEntity.ok(organizerService.SearchPartially(page, size, sort));
+        return ResponseEntity.ok(organizerService.SearchPartially(searchBy, page, size, sort));
     }
 }
