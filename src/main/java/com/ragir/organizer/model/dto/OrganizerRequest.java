@@ -1,15 +1,15 @@
 package com.ragir.organizer.model.dto;
 
+import com.ragir.organizer.validation.annotation.ValidPhone;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.validator.constraints.UniqueElements;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrganizerRequest {
@@ -22,9 +22,9 @@ public class OrganizerRequest {
     @UniqueElements(message = "Email is already registered")
     private String email;
 
+    @ValidPhone
     @NotBlank(message = "Phone Number is required")
     @UniqueElements(message = "Phone Number is already registered")
-    @Pattern(regexp = "^[0-9]{10,15}$", message = "Phone Number must be between 10 to 15 digits")
     private String phone;
 
     @NotBlank(message = "BusinessType is required")
