@@ -6,9 +6,9 @@ import com.ragir.organizer.model.entity.Organizer;
 import com.ragir.organizer.util.OrganizerCodeGenerator;
 
 public class OrganizerMapper {
-    public static Organizer toEntity(OrganizerRequest request){
+    public static Organizer toEntity(OrganizerRequest request, Integer lastId){
         Organizer organizer = new Organizer();
-        organizer.setOrganizerCode(OrganizerCodeGenerator.GenerateOrganizerCode());
+        organizer.setOrganizerCode(OrganizerCodeGenerator.GenerateNextCode(lastId));
         organizer.setName(request.getName());
         organizer.setEmail(request.getEmail());
         organizer.setPhone(request.getPhone());
