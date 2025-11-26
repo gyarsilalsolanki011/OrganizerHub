@@ -110,6 +110,23 @@ Error Response Examples:
 
 <br>
 
+## 🗄 SQL Schema
+```sql
+CREATE TABLE organizers (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    organizer_code VARCHAR(20) UNIQUE NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    phone VARCHAR(15) UNIQUE NOT NULL,
+    business_type VARCHAR(50),
+    status VARCHAR(20) DEFAULT 'ACTIVE',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+```
+
+<br>
+
 <a name="how-to-run"></a>
 ## ▶️ How to Run
 
@@ -146,3 +163,34 @@ java -jar target/spring-boot-ragir-organizer.jar
 - Base URL → `http://localhost:8080/api/organizers`
 - Swagger → `http://localhost:8080/swagger-ui.html`
 
+<br>
+
+## 🧪 Testing
+**Run Unit Tests**
+```bash    
+mvn test
+```
+**Run Postman Collection:**
+- Download Postman collection `OrganizerHub.postman_collection.json` to test the APIs.
+- Import the collection into Postman and Execute the API requests.
+
+<br>
+
+## 📦 Deliverables (as per assignment)
+- ✅ Complete Spring Boot Project on GitHub
+- ✅ README.md with project details
+- ✅ Postman Collection(Optional)
+
+<br>
+
+## 👨‍💻 Developer
+
+`Gyarsilal Solanki`
+- [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230A66C2.svg?logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/gyarsilal-solanki) [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/gyarsilalsolanki011)
+- [![Gmail](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:gyarsilalsolanki011@gmail.com)
+
+
+Join us to discuss ideas, share feedback, and coordinate contributions:  
+[![Join Discord](https://img.shields.io/discord/1405808666179014697?color=4CBB17&label=Join%20Us%20on%20Discord&logo=discord&logoColor=blue)](https://discord.gg/Zrc9x3ts)
+
+***If you find this project helpful, consider giving it a ⭐ to support!***
