@@ -1,0 +1,544 @@
+{
+	"info": {
+		"_postman_id": "bf0cba97-1d71-48cc-90f1-d171e7d60f44",
+		"name": "Organizer Collection",
+		"description": "# 🚀 Organizer Collection\n\n## 🔹 **Organizer Management APIs**\n\n| **Method** | **Endpoint** | **Description** |\n| --- | --- | --- |\n| **POST** | `/api/organizers` | Register a new organizer |\n| **GET** | `/api/organizers/{id}` | Get organizer by ID |\n| **GET** | `/api/organizers/search?q=abc` | Search organizers (dropdown API) |\n\nThese APIs allow the Super Admin to manage and switch between organizations efficiently.\n\n---\n\n## 🔹 Example Requests\n\n#### ➤ **Register Organizer**\n\n```\nPOST /api/organizers\nContent-Type: application/json\n{\n  \"name\": \"Ragir Technologies\",\n  \"email\": \"info@ragir.com\",\n  \"phone\": \"9876543210\",\n  \"businessType\": \"IT Services\"\n}\n\n ```\n\n---\n\n#### ➤ **Get Organizer by ID**\n\n```\nGET /api/organizers/1\n\n ```\n\n---\n\n#### ➤ **Search Organizers**\n\n```\nGET /api/organizers/search?q=Ragir&page=0&size=10\n\n\n\n ```",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33712155",
+		"_collection_link": "https://www.postman.com/dev-cafe/workspace/organizehub/collection/33712155-bf0cba97-1d71-48cc-90f1-d171e7d60f44?action=share&source=collection_link&creator=33712155"
+	},
+	"item": [
+		{
+			"name": "Create Organizer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Ragir Technologies\",\r\n  \"email\": ,\r\n  \"phone\": ,\r\n  \"businessType\": \"IT Services\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/organizers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"organizers"
+					]
+				},
+				"description": "### **1️⃣ Register Organizer**\n\n**POST** `/api/organizers`  \n  \nCreates a new organizer with fields:\n\n- `name`\n    \n- `email`\n    \n- `phone`\n    \n- `businessType`\n    \n\nThis API automatically generates the **Organizer Code** (e.g., `ORG00001`).\n\n✔ Validations applied  \n  \n✔ Duplicate email/phone handling  \n  \n✔ Custom phone validator"
+			},
+			"response": [
+				{
+					"name": "201 - Created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Ragir Technologies\",\r\n  \"email\": \"info@ragir.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"businessType\": \"IT Services\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/organizers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"organizers"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 26 Nov 2025 20:22:33 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Id\": null,\n    \"name\": \"Ragir Technologies\",\n    \"email\": \"info@ragir.com\",\n    \"phone\": \"9876543210\",\n    \"businessType\": \"IT Services\",\n    \"status\": \"ACTIVE\",\n    \"createdAt\": \"2025-11-27T01:52:33.758357\",\n    \"updatedAt\": \"2025-11-27T01:52:33.758357\"\n}"
+				},
+				{
+					"name": "409 - Conflict",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Ragir Technologies\",\r\n  \"email\": \"info@ragir.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"businessType\": \"IT Services\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/organizers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"organizers"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 26 Nov 2025 20:26:08 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"path\": \"uri=/api/organizers\",\n    \"details\": \"Email already exists\",\n    \"error\": \"Duplicate Resource Error\",\n    \"timestamp\": \"2025-11-27T01:56:08.4179402\",\n    \"status\": 409\n}"
+				},
+				{
+					"name": "400 - Bad Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Ragir Technologies\",\r\n  \"email\": ,\r\n  \"phone\": ,\r\n  \"businessType\": \"IT Services\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/organizers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"organizers"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 26 Nov 2025 20:28:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2025-11-26T20:28:06.988Z\",\n    \"status\": 400,\n    \"error\": \"Bad Request\",\n    \"path\": \"/api/organizers\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Organizer",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Ragir Technologies\",\r\n  \"email\": \"info@ragir.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"businessType\": \"IT Services\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/organizers/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"organizers",
+						"2"
+					]
+				},
+				"description": "### **2\\. Get Organizer by ID**\n\n**GET** `/api/organizers/{id}`  \n  \nRetrieves full details of the organizer, including:\n\n- Organizer Code\n    \n- Contact Information\n    \n- Business Type\n    \n- Status\n    \n- Created/Updated timestamps\n    \n\nIf the ID does not exist → returns a **404 NOT FOUND** error response."
+			},
+			"response": [
+				{
+					"name": "404 - Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Ragir Technologies\",\r\n  \"email\": \"info@ragir.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"businessType\": \"IT Services\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/organizers/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"organizers",
+								"3"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 26 Nov 2025 20:32:15 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"path\": \"uri=/api/organizers/3\",\n    \"details\": \"Organizer Not found by id : 3\",\n    \"error\": \"Data Not Found Error\",\n    \"timestamp\": \"2025-11-27T02:02:15.6085378\",\n    \"status\": 404\n}"
+				},
+				{
+					"name": "200 - Ok",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Ragir Technologies\",\r\n  \"email\": \"info@ragir.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"businessType\": \"IT Services\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/organizers/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"organizers",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 26 Nov 2025 20:32:41 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Id\": null,\n    \"name\": \"Ragir Technologies\",\n    \"email\": \"\",\n    \"phone\": \"\",\n    \"businessType\": \"IT Services\",\n    \"status\": \"ACTIVE\",\n    \"createdAt\": \"2025-11-27T01:57:49.567341\",\n    \"updatedAt\": \"2025-11-27T01:57:49.567341\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Search Organizer",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Ragir Technologies\",\r\n  \"email\": \"info@ragir.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"businessType\": \"IT Services\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/organizers/search?page=0&size=10&sort=id,asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"organizers",
+						"search"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "sort",
+							"value": "id,asc"
+						}
+					]
+				},
+				"description": "### **3\\. Search Organizers (Dropdown API)**\n\n**GET** `/api/organizers/search?q=...&page=0&size=10`  \n  \nPerforms a partial or full-text search on:\n\n- Name\n    \n- Email\n    \n- Phone\n    \n\nReturns a **lightweight result list** suitable for a UI dropdown.  \nSupports **pagination** for larger datasets."
+			},
+			"response": [
+				{
+					"name": "200 - Ok",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Ragir Technologies\",\r\n  \"email\": \"info@ragir.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"businessType\": \"IT Services\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/organizers/search?page=0&size=10&sort=id,desc&searchBy=Ragir Technologies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"organizers",
+								"search"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								},
+								{
+									"key": "sort",
+									"value": "id,desc"
+								},
+								{
+									"key": "searchBy",
+									"value": "Ragir Technologies"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Nov 2025 11:13:24 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"content\": [\n        {\n            \"id\": 2,\n            \"name\": \"Ragir Technologies\",\n            \"email\": \"\"\n        },\n        {\n            \"id\": 1,\n            \"name\": \"Ragir Technologies\",\n            \"email\": \"info@ragir.com\"\n        }\n    ],\n    \"empty\": false,\n    \"first\": true,\n    \"last\": true,\n    \"number\": 0,\n    \"numberOfElements\": 2,\n    \"pageable\": {\n        \"offset\": 0,\n        \"pageNumber\": 0,\n        \"pageSize\": 10,\n        \"paged\": true,\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"unpaged\": false\n    },\n    \"size\": 10,\n    \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n    },\n    \"totalElements\": 2,\n    \"totalPages\": 1\n}"
+				},
+				{
+					"name": "400 - Bad request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Ragir Technologies\",\r\n  \"email\": \"info@ragir.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"businessType\": \"IT Services\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/organizers/search?page=0&size=10&sort=id,desc&searchBy=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"organizers",
+								"search"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								},
+								{
+									"key": "sort",
+									"value": "id,desc"
+								},
+								{
+									"key": "searchBy",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Nov 2025 11:14:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2025-11-27T11:14:47.272Z\",\n    \"status\": 400,\n    \"error\": \"Bad Request\",\n    \"path\": \"/api/organizers/search\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "org-base-url",
+			"value": ""
+		}
+	]
+}

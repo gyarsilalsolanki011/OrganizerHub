@@ -24,7 +24,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(InternalServiceException.class)
     public ResponseEntity<?> HandleInterServiceError(
-            ResourceNotFoundException ex, WebRequest request
+            RuntimeException ex, WebRequest request
     ) {
         return error(ex.getMessage(), request, HttpStatus.BAD_REQUEST, "Internal Service Error");
     }
@@ -58,7 +58,9 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, Object>> handleValidationErrors(MethodArgumentNotValidException ex, WebRequest request) {
+    public ResponseEntity<Map<String, Object>> handleValidationErrors(
+            MethodArgumentNotValidException ex, WebRequest request
+    ) {
         Map<String, Object> errors = new HashMap<>();
         // Field-level errors (e.g. @NotBlank, @Positive, etc.)
         ex.getBindingResult().getFieldErrors().forEach(error ->
@@ -82,7 +84,9 @@ public class GlobalExceptionHandler {
 
 
     @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<Map<String, Object>> handleConstraintViolation(ConstraintViolationException ex, WebRequest request) {
+    public ResponseEntity<Map<String, Object>> handleConstraintViolation(
+            ConstraintViolationException ex, WebRequest request
+    ) {
         Map<String, Object> errors = new HashMap<>();
         ex.getConstraintViolations().forEach(error -> {
             String field = error.getPropertyPath().toString();

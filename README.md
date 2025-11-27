@@ -171,7 +171,7 @@ java -jar target/spring-boot-ragir-organizer.jar
 mvn test
 ```
 **Run Postman Collection:**
-- Download Postman collection `OrganizerHub.postman_collection.json` to test the APIs.
+- Download Postman collection [`OrgCollection.postman_collection.json`](./setup/OrgCollection.postman_collection.json) to test the APIs.
 - Import the collection into Postman and Execute the API requests.
 
 <br>
@@ -179,7 +179,7 @@ mvn test
 ## 📦 Deliverables (as per assignment)
 - ✅ Complete Spring Boot Project on GitHub
 - ✅ README.md with project details
-- ✅ Postman Collection(Optional)
+- ✅ Postman Collection(Optional) : [`OrgCollection.postman_collection.json`](./setup/OrgCollection.postman_collection.json)
 
 <br>
 

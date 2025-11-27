@@ -4,6 +4,7 @@ import com.ragir.organizer.model.dto.OrganizerListItemDTO;
 import com.ragir.organizer.model.dto.OrganizerRequest;
 import com.ragir.organizer.model.dto.OrganizerResponse;
 import com.ragir.organizer.service.OrganizerService;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -31,7 +32,7 @@ public class OrganizerController {
 
     @GetMapping("/search")
     public ResponseEntity<Page<OrganizerListItemDTO>> SearchPartially(
-            @RequestParam(defaultValue = "Ram") String searchBy,
+            @NotBlank @RequestParam String searchBy,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
             @RequestParam(defaultValue = "id,asc") String[] sort
