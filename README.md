@@ -51,7 +51,7 @@ It provides **REST APIs** to *register organizers*, *fetch organizer details*, a
 
 <a name="api-endpoints"></a>
 ## 🚀 API Endpoints
-### 🔹 Organizer Management APIs
+### ➤ Organizer Management APIs
 
 | **Method** | **Endpoint**                   | **Description**                  |
 |------------|--------------------------------|----------------------------------|
@@ -60,8 +60,8 @@ It provides **REST APIs** to *register organizers*, *fetch organizer details*, a
 | **GET**    | `/api/organizers/search?q=abc` | Search organizers (dropdown API) |
 
 
-### 🔹 Example Requests
-➤ Register Organizer
+### ➤ Example Requests
+🔹Register Organizer
 ```http
 POST /api/organizers
 Content-Type: application/json
@@ -74,12 +74,12 @@ Content-Type: application/json
 }
 ```
 
-➤ Get Organizer by ID
+🔹Get Organizer by ID
 ```http
 GET /api/organizers/1
 ```
 
-➤ Search Organizers
+🔹Search Organizers
 ```http
 GET /api/organizers/search?q=Ragir&page=0&size=10
 ```
