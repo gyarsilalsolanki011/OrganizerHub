@@ -18,6 +18,7 @@ public class OrganizerMapper {
 
     public static OrganizerResponse toOrganizerResponse(Organizer organizer){
         OrganizerResponse response = new OrganizerResponse();
+        response.setId(organizer.getId());
         response.setName(organizer.getName());
         response.setEmail(organizer.getEmail());
         response.setPhone(organizer.getPhone());
